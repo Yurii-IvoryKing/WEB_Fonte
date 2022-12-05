@@ -7,7 +7,7 @@
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
 	<meta name="description" content="Figma design to HTML/CSS/JS code">
-	<link rel="stylesheet" href="css/style.min.css?_v=20221205015622">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221205025005">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +31,7 @@
 				</div>
 				<div class="header__actions actions-header" data-da=".header__menu, 767.98">
 					<div class="actions-header__account">
-						<button class="actions-header__login button">Войти</button>
+						<button class="actions-header__login button" data-popup="#loginPopup">Войти</button>
 					</div>
 					<div class="actions-header__language">
 						<button class="actions-header__change-language">Рус</button>
@@ -170,9 +170,9 @@
 								<img src="img/icons/crystal.svg" alt="">
 							</div>
 							<div class="item-features__body">
-								<h4 class="item-features__title">
+								<h3 class="item-features__title">
 									Стабильность
-								</h4>
+								</h3>
 								<p class="item-features__text">
 									Сохранность капитала клиентов <br> приоритетнее доходности - каждое <br> решение взвешено,
 									обдумано и
@@ -185,9 +185,9 @@
 								<img src="img/icons/graph.svg" alt="">
 							</div>
 							<div class="item-features__body">
-								<h4 class="item-features__title">
+								<h3 class="item-features__title">
 									Устойчивость
-								</h4>
+								</h3>
 								<p class="item-features__text">
 									Устойчивое развитие — основа нашей бизнес-модели. Начиная с поиска и оценки предоставившихся
 									возможностей для бизнеса до последовательного развития наших проектов и реаллокации капитала в
@@ -200,9 +200,9 @@
 								<img src="img/icons/bag.svg" alt="">
 							</div>
 							<div class="item-features__body">
-								<h4 class="item-features__title">
+								<h3 class="item-features__title">
 									Команда
-								</h4>
+								</h3>
 								<p class="item-features__text">
 									Команда Fonte Capital LTD – основа успеха. Каждый сотрудник Компании – это ценный актив в
 									рабочем процессе фонда. Наша цель – создание такой рабочей атмосферы и условий, которые позволят
@@ -215,9 +215,9 @@
 								<img src="img/icons/handshake.svg" alt="">
 							</div>
 							<div class="item-features__body">
-								<h4 class="item-features__title">
+								<h3 class="item-features__title">
 									Репутация
-								</h4>
+								</h3>
 								<p class="item-features__text">
 									Ответственность и этика – основа нашей деятельности. Деятельность в рамках лучших практик
 									(Корпоративный Кодекс этики и стандарты профессионального поведения) позволяет предлагать
@@ -475,9 +475,9 @@
 					</div>
 				</div>
 			</section>
-			<section class="consultation">
+			<div class="consultation">
 				<div class="consultation__container">
-					<form data-ajax action="sendmail.php" method="POST" class="consultation__form">
+					<form data-dev data-popup-message="#formSendPopup" action="sendmail.php" method="POST" class="consultation__form">
 						<div class="consultation__input-body _input-big input-body">
 							<input autocomplete="off" type="text" name="form[name]" placeholder="Имя" class="input input-big" data-required data-validate>
 						</div>
@@ -498,14 +498,14 @@
 						<picture><source srcset="img/home/consult-img.webp" type="image/webp"><img src="img/home/consult-img.png" alt=""></picture>
 					</div>
 				</div>
-			</section>
+			</div>
 		</main>
 		<footer class="footer">
 			<div class="footer__main main-footer">
 				<div class="main-footer__container">
 					<div class="main-footer__left">
-						<a href="#" class="main-footer__logo">
-							<svg class="">
+						<a href="home.html" class="main-footer__logo">
+							<svg class="icon">
 								<use xlink:href="img/icons/icons.svg#svg-logo"></use>
 							</svg>
 						</a>
@@ -568,18 +568,38 @@
 			</div>
 		</footer>
 	</div>
-	</div>
-	<!-- <div id="popup" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрыть</button>
-			<div class="popup__text">
-				Text
+	<div id="formSendPopup" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__text">
+					<span>Пример работы Попапа после отправки формы</span>
+					<p>Cпасибо, мы свяжемся с вами как можно скорее!</p>
+				</div>
+				<button data-close type="button" class="popup__close button">Закрыть</button>
 			</div>
 		</div>
 	</div>
-</div> -->
-	<script src="js/app.min.js?_v=20221205015622"></script>
+
+	<div id="loginPopup" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__text">
+					<span>Пример работы Попапа Логина</span>
+					<p>Войти</p>
+				</div>
+				<form data-dev>
+					<div class="consultation__input-body input-body">
+						<input autocomplete="off" type="email" name="form[email]" placeholder="Email" class="input" data-required="email" data-validate>
+					</div>
+					<div class="consultation__input-body _input-big input-body">
+						<input autocomplete="off" type="password" name="form[password]" placeholder="Пароль" class="input input-big" data-required data-validate>
+					</div>
+					<button data-close type="button" class="popup__close button">Закрыть</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20221205025005"></script>
 </body>
 
 </html>
